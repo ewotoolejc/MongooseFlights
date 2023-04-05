@@ -1,0 +1,95 @@
+<%- include('../partials/header') %>
+<br><br>
+<form action="/flights/<%= flight._id %>/tickets/new">
+  <input type="submit" value="Add a TIX to dis Flight" />
+</form>
+
+<h2>Flights</h2>
+<table>
+    <tbody>
+        <thead>
+        <tr>
+          <th>Airline</th>
+          <th>Airport</th>
+          <th>Flight #</th>
+          <th>Departs</th>
+        </tr>
+      </thead>
+    <tr>
+        <td><%= flight.airline %></td>
+        <td><%= flight.airport %></td>
+        <td><%= flight.flightNo %></td>
+        <td><%= flight.departs %></td>
+      </tr>
+    </tbody>
+</table>
+
+<br><br><h2>Arrival Detail</h2>
+<form id="add-arrival-form" method="POST"
+  action="/flights/<%= flight._id %>/arrivals">
+  <label>Arrival Airport:</label>
+  <select id="avlAir" name="airport">
+    <option value="ATL">ATL</option>
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN">DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+</select>
+<label>Arrives:
+    <input type="datetime-local" name="arrival">
+  </label>
+  <button type="submit">Add...Dat...Arrival</button>
+</form>
+
+<% if (flight.destinations.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Arrival Time</th>
+          <th>Arrival Airport</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% function compareTime(flA, flB) { %>
+            <% if (flA.arrival < flB.arrival) { %>
+              <% return -1; } %>
+              <% if (flA.arrival > flB.arrival) { %>
+              <% return 1;} %>
+              <% return 0;}; %>
+          <% flight.destinations.sort(compareTime) %>
+        <% flight.destinations.forEach(function(a) { %> 
+          <tr>
+            <td><%= a.arrival %></td>
+            <td><%= a.airport %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } else { %>
+      <h5>No Arrivals Listed Yet</h5>
+<% } %>
+<br><br>
+
+<% if (tickets.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Seat</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tickets.forEach(function(t) { %> 
+        <tr>
+          <td><%= t.seat %></td>
+          <td><%= t.price %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+    <h5>No Tix Yet</h5>
+<% } %>
+
+<%- include('../partials/footer') %>  

@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<h2>Flights</h2>
+ <table>
+   <thead>
+     <tr>
+       <th>Airline</th>
+       <th>Airport</th>
+       <th>Flight #</th>
+       <th>Departs</th>
+     </tr>
+   </thead>
+   <tbody>
+    <% function compareTime(flA, flB) { %>
+      <% if (flA.departs < flB.departs) { %>
+        <% return -1; } %>
+        <% if (flA.departs > flB.departs) { %>
+        <% return 1;} %>
+        <% return 0;}; %>
+    <% flights.sort(compareTime) %>
+     <% flights.forEach(function(f) { %>
+       <tr>
+         <td><%= f.airline %></td>
+         <td><%= f.airport %></td>
+         <td><%= f.flightNo %></td>
+         <td><%= f.departs %></td>
+         <td><a href="/flights/<%= f._id %>">Dose Details</a></td>
+       </tr>
+    <% }); %>
+   </tbody>
+ </table> 
+
+<%- include('../partials/footer') %>
