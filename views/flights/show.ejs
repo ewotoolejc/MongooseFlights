@@ -1,11 +1,8 @@
 <%- include('../partials/header') %>
 <br><br>
-<form action="/flights/<%= flight._id %>/tickets/new">
-  <input type="submit" value="Add a TIX to dis Flight" />
-</form>
 
 <h2>Flights</h2>
-<table>
+<table class="flightstable">
     <tbody>
         <thead>
         <tr>
@@ -24,7 +21,11 @@
     </tbody>
 </table>
 
-<br><br><h2>Arrival Detail</h2>
+<form action="/flights/<%= flight._id %>/tickets/new">
+  <input id="addtixbutton" type="submit" value="Add a Tix to dis Flight" />
+</form>
+
+<h2>Arrival Detail</h2>
 <form id="add-arrival-form" method="POST"
   action="/flights/<%= flight._id %>/arrivals">
   <label>Arrival Airport:</label>
@@ -37,13 +38,13 @@
     <option value="SAN">SAN</option>
 </select>
 <label>Arrives:
-    <input type="datetime-local" name="arrival">
+    <input type="datetime-local" name="arrival" required>
   </label>
-  <button type="submit">Add...Dat...Arrival</button>
+  <button id="addflightbutton" type="submit">Add...Dat...Arrival</button>
 </form>
 
 <% if (flight.destinations.length) { %>
-    <table>
+    <table id="arrivalstable">
       <thead>
         <tr>
           <th>Arrival Time</th>
@@ -69,10 +70,10 @@
     <% } else { %>
       <h5>No Arrivals Listed Yet</h5>
 <% } %>
-<br><br>
 
+<h2>Seat Details</h2>
 <% if (tickets.length) { %>
-  <table>
+  <table id="tixtable">
     <thead>
       <tr>
         <th>Seat</th>

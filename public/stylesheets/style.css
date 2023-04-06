@@ -1,8 +1,153 @@
+@font-face {
+  font-family: "attackGraffiti";
+  src: url('mongoose-flights/public/fonts/a_attackGraffiti/aAttackGraggiti.otf');
+  src: url('mongoose-flights/public/fonts/a_attackGraffiti/aAttackGraggiti.ttf') format('truetype');
+}
+
+#rotate {
+  color: orangered;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+body {
+  background-image: url('https://www.airport-technology.com/wp-content/uploads/sites/14/2022/01/shutterstock_758602234-min-1038x778.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media (min-width: 800px) {
+
+#rotate {
+  visibility: hidden;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "attackGraffiti", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+#links {
+  font-weight: bold;
+  background-color: rgba(174, 179, 190, .9);
+  border-radius: 3vmin;
+  padding: 1vmin;
+  margin: 1vmin;
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 a {
-  color: #00B7FF;
+  color: whitesmoke;
+  margin: 1vmin;
+}
+
+.Home {
+  font-family: "attackGraffiti";
+  color: red;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  text-align: center;
+  font-weight: bolder;
+}
+
+h2 {
+  color: orange;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.flightstable {
+  text-align: center;
+  background-color: rgba(174, 179, 190, .7);
+  border-radius: 3vmin;
+  padding: 3vmin;
+  margin: 1vmin;
+  border-collapse: collapse;
+}
+
+.flightstable > thead {
+  color: whitesmoke;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  width: 120%;
+  border: 1px solid black;
+}
+
+.flightstable > tbody {
+  font-style: italic;
+  padding: .5vmin;
+  border: 1px solid black;
+}
+
+.flightstable > tr, td {
+  border: 1px solid black;
+}
+
+#fldeetsbutton {
+  background-color: red;
+  color: azure;
+}
+
+#addtixbutton {
+  background-color: yellow;
+  font-weight: bold;
+  margin: 2vmin;
+}
+
+#add-arrival-form {
+  background-color: rgba(174, 179, 190, .7);
+  color: blue;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#arrivalstable {
+  text-align: center;
+  background-color: rgba(174, 179, 190, .7);
+  padding: 2vmin;
+  margin: 2vmin;
+  border-collapse: collapse;
+}
+
+#arrivalstable > thead {
+  border: 1px solid black;
+  color: blue;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#addflightbutton {
+  background-color: blue;
+  color: whitesmoke;
+}
+
+#tixtable {
+  text-align: center;
+  background-color: rgba(174, 179, 190, .7);  
+  color: purple;
+}
+
+#tixtable > thead {
+  color: yellow;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
+}
+
+#addflightform {
+  background-color: rgba(174, 179, 190, .7);
+  border-radius: 5%;
+  padding: 3vmin;
+  color: blue;
+  font-weight: bold;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;  
+}
+
+#addticket {
+  background-color: rgba(174, 179, 190, .7);
+  border-radius: 5%;
+  padding: 3vmin;
+  margin: 3vmin;
+  color: yellow;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; 
+}
+
 }
